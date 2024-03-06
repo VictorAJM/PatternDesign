@@ -1,0 +1,6 @@
+chaska\observerpattern\Observer.class
+chaska\observerpattern\Subject.class
+chaska\observerpattern\WeatherData.class
+chaska\observerpattern\CurrentConditionsDisplay.class
+chaska\observerpattern\DisplayElement.class
+chaska\observerpattern\ObserverPattern.class
