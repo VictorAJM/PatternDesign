@@ -2,20 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package chaska.facade;
+package chaska.command;
 
 /**
  *
  * @author victor
  */
-public class Tuner {
-    String description;
-
-    public Tuner(String description) {
-            this.description = description;
+public class LightOnCommand implements Commandp {
+    Light light;
+    public LightOnCommand(Light light) {
+        this.light = light;
     }
     @Override
-    public String toString() {
-        return description;
+    public void execute() {
+        light.on();
     }
 }

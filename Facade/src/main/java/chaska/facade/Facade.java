@@ -14,11 +14,10 @@ public class Facade {
         Amplifier amp = new Amplifier("Amplifier");
         PopcornPopper popper = new PopcornPopper("popper");
         Screen screen = new Screen("screen");
-        Tuner tuner = new Tuner("tuner");
         TheaterLights lights = new TheaterLights("lights");
         StreamingPlayer player = new StreamingPlayer("player");
         Projector projector = new Projector("projector");
-        HomeTheaterFacade htf = new HomeTheaterFacade(amp,tuner,player,projector,lights,screen,popper);
+        HomeTheaterFacade htf = new HomeTheaterFacade(amp,player,projector,lights,screen,popper);
         htf.watchMovie("Avengers infity war");
         htf.endMovie();
     }
