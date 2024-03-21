@@ -10,4 +10,5 @@ package chaska.command;
  */
 public interface Commandp {
     public void execute();
+    public void undo();
 }

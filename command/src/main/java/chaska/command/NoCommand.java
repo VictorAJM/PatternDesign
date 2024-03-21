@@ -8,13 +8,9 @@ package chaska.command;
  *
  * @author victor
  */
-public class LightOnCommand implements Commandp {
-    Light light;
-    public LightOnCommand(Light light) {
-        this.light = light;
-    }
+public class NoCommand implements Commandp {
     @Override
-    public void execute() {
-        light.on();
-    }
+    public void execute() { }
+    @Override
+    public void undo() { }
 }

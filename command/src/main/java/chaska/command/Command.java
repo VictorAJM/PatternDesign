@@ -11,18 +11,35 @@ package chaska.command;
 public class Command {
 
     public static void main(String[] args) {
-        SimpleRemoteControl remote = new SimpleRemoteControl();
-        Light light = new Light();
-        GarageDoor garageDoor = new GarageDoor();
-        LightOnCommand lightOn = new LightOnCommand(light);
-        GarageDoorOpenCommand garageOpen = 
-            new GarageDoorOpenCommand(garageDoor);
+        RemoteControl remoteControl = new RemoteControl();
 
-        remote.setCommand(lightOn);
-        remote.buttonWasPressed();
-        remote.setCommand(garageOpen);
-        remote.buttonWasPressed();
-    
-	
+        CeilingFan ceilingFan= new CeilingFan("Living Room");
+        GarageDoor garageDoor = new GarageDoor();
+        Stereo stereo = new Stereo("Living Room");
+        CeilingFanOnCommand ceilingFanOn = new CeilingFanOnCommand(ceilingFan);
+        CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+
+        GarageDoorUpCommand garageDoorUp = new GarageDoorUpCommand(garageDoor);
+        GarageDoorDownCommand garageDoorDown = new GarageDoorDownCommand(garageDoor);
+
+        StereoOnWithCDCommand stereoOnWithCD = new StereoOnWithCDCommand(stereo);
+        StereoOffCommand  stereoOff = new StereoOffCommand(stereo);
+
+        remoteControl.setCommand(0, garageDoorUp, garageDoorDown);
+        remoteControl.setCommand(1, ceilingFanOn, ceilingFanOff);
+        remoteControl.setCommand(2, stereoOnWithCD, stereoOff);
+
+        System.out.println(remoteControl);
+
+        remoteControl.onButtonWasPushed(0);
+        remoteControl.offButtonWasPushed(0);
+        remoteControl.onButtonWasPushed(1);
+        remoteControl.offButtonWasPushed(1);
+        remoteControl.onButtonWasPushed(2);
+        System.out.println(remoteControl);
+        remoteControl.undoButtonWasPressed();
+        System.out.println(remoteControl);
+        remoteControl.onButtonWasPushed(2);
+        remoteControl.offButtonWasPushed(2);
     }
 }
